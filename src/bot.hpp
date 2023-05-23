@@ -5,14 +5,14 @@ using namespace pros;
 
 void drivetrain_left(int32_t voltage) {
     left_1.move(voltage);
-    // left_2.move(voltage);
-    // left_3.move(voltage);
+    left_2.move(voltage*-1);
+    left_3.move(voltage);
 }
 
 void drivetrain_right(int32_t voltage) {
-    right_1.move(voltage);
-    // right_2.move(voltage);
-    // right_3.move(voltage);
+    right_1.move(voltage*-1);
+    right_2.move(voltage);
+    right_3.move(voltage);
 }
 
 void controller_tick() {
