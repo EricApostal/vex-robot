@@ -1,4 +1,5 @@
 #include <string>
+#include "motors.hpp"
 
 /*
     Task-based system for robot module controls
@@ -6,14 +7,16 @@
 
 using namespace std;
 
+#ifndef TASKS_HPP
+#define TASKS_HPP
+
 class Tasks {
     public: 
         bool isComplete = false;
-        std::string taskName = "";
+        std::string taskName = "default";
 
-        Tasks(std::string task_name) {
-            // taskName can be done without, perhaps useful for debug info
-            taskName = task_name;
+        Tasks() {
+            
         };
 
         void onStart() {
@@ -24,9 +27,11 @@ class Tasks {
 
         };
 
-        void onTick() {
-
-        }
+        virtual std::string onTick() {
+            return "nope";
+        };
 
 
 };
+
+#endif
