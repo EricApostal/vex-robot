@@ -1,10 +1,10 @@
+#pragma once
+
 #include "main.h"
 #include "okapi/api.hpp"
 
 using namespace okapi;
 
-#ifndef MOTORS_HPP
-#define MOTORS_HPP
 
 class Motors
 {
@@ -20,11 +20,9 @@ public:
         drive = ChassisControllerBuilder()
 
         // .withMotors({-1, -2, 3}, {8, -9, -10})
-        .withMotors(leftMotors, rightMotors )
+        .withMotors(leftMotors, rightMotors)
         // Green gearset, 4 in wheel diam, 11.5 in wheel track
-        .withDimensions(AbstractMotor::gearset::blue, {{3.25_in, 12_in}, imev5BlueTPR})
+        .withDimensions(AbstractMotor::gearset::blue, {{3.25_in, 12_in}, 400})
         .build();
     }
 };
-
-#endif

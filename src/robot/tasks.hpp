@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "motors.hpp"
 
@@ -7,8 +8,6 @@
 
 using namespace std;
 
-#ifndef TASKS_HPP
-#define TASKS_HPP
 
 class Tasks {
     public: 
@@ -19,19 +18,17 @@ class Tasks {
             
         };
 
-        void onStart() {
+        virtual void onStart() {
             
         };
 
-        void onComplete() {
+        virtual void onComplete() {
 
         };
 
-        virtual std::string onTick() {
-            return "nope";
+        virtual void onTick() {
+            
         };
 
 
 };
-
-#endif

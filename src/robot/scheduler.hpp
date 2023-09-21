@@ -10,9 +10,6 @@ using namespace pros;
 /*
     Allows for running events on tick and such.
     Basically a timing system.
-
-    In favor of interfacing, this should probably be a static class / struct / whatever.
-    This works, but I need to define private scopes and such.
 */
 
 class Scheduler
@@ -30,6 +27,7 @@ public:
     void addTask(Tasks* newTask)
     {
         taskArray.push_back(newTask);
+        newTask->onStart();
     }
 
     void startScheduler()
@@ -59,12 +57,10 @@ private:
         // represents the function where the loop would be
         while (true)
         {
-            okapi::Controller controller;
             for (int i = 0; i < taskArray.size(); i++)
             {
-
                 // call the onTick method of every registered task
-                controller.setText(1, 1, taskArray[i]->onTick() );
+                taskArray[i]->onTick();
             }
             // delayed so we don't crash the program, 10ms is standard but you can change it i guess
             delay(10);

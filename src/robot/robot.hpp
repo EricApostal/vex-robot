@@ -1,20 +1,22 @@
 #include "main.h"
 #include "motors.hpp"
 #include "tasks.hpp"
+#include "auton.hpp"
+
 #include "okapi/api.hpp"
 
 using namespace pros;
 
 class Robot: public Tasks {
     public:
-        /*
-            0 = idle
-            1 = running
-            2 = completed
-        */
-        int status = 0;
         okapi::Controller controller;
         std::shared_ptr<ChassisController> drive;
+        /*
+        0 = Driver
+        1 = Auton
+        */
+        int mode = 0;
+        bool autonStarted = false;
 
         Robot(okapi::Controller controller) {
             controller = controller;
@@ -22,16 +24,20 @@ class Robot: public Tasks {
             drive = motors.drive;
         }
 
-        // Robot(const Robot& other) {
-        //     controller.setText(1, 1, "copy");
-        // }
-
-        std::string onTick() override {
-            // controller.setText(1, 1, "robot on tick");
+        void onTick() override {
+            if (mode == 0) {
+                // driver
             drive->getModel()->arcade(controller.getAnalog(ControllerAnalog::leftY),
                               controller.getAnalog(ControllerAnalog::rightX));
-            controller.setText(1, 1, "analog recieved");
-            return "yep";
+            } else if (mode == 1) {
+                // start auton task
+                if (!autonStarted) {
+                    doAuton(drive);
+                    autonStarted = true;
+
+                }
+            }
+            
         }
 
 };
