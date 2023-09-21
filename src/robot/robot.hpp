@@ -12,5 +12,5 @@ class Robot {
             2 = completed
         */
         int status = 0;
-        Tasks task = Tasks(asd);
+        Tasks task = Tasks("main");
 };
