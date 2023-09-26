@@ -9,6 +9,10 @@ using namespace okapi;
 class Motors
 {
 public:
+    /*
+        There isn't much of a need for us to use okapi anymore, so I will likely switch over to pros motor groups
+        It was originally for auton, but there isn't much of a point
+    */
     okapi::MotorGroup leftMotors = okapi::MotorGroup({-1, 2, -3});
     okapi::MotorGroup rightMotors = okapi::MotorGroup({8, 9, -10});
     std::shared_ptr<ChassisController> drive;
