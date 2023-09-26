@@ -38,5 +38,6 @@ scheduler.addTask(&taskExample);
 
 Keep in mind that you won't always need an onStart, or even an onTick method override, they are just available if you need them. There is onComplete, but that doesn't get called *yet* (and I may remove it, since doing so from the scheduler could be redudant).
 
-(more docs coming soon dw)
+A more complete example can be found in `robot.hpp`, where the class `Robot` extends `Tasks` (with a custom constructor)
 
+*rest of readme coming soon:tm:*
