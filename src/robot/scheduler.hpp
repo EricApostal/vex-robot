@@ -51,6 +51,7 @@ public:
 
 private:
     // TODO: Handle cleanup when a task is completed
+    // TODO: Implement disabling schedular
     void schedulerLoop()
     {
         // needs to be implemented via a task

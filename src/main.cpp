@@ -81,9 +81,9 @@ void opcontrol() {
     lemlib::Chassis chassis(drivetrain, lateralController, angularController, sensors);
 
     chassis.calibrate(); // calibrate the chassis
-    chassis.setPose(0, 0, 0); // X: 0, Y: 0, Heading: 0
+    // chassis.setPose(0, 0, 0); // X: 0, Y: 0, Heading: 0
     // chassis.setPose(5.2, 10.333, 87); // X: 5.2, Y: 10.333, Heading: 87
 
     chassis.turnTo(5,5,5000);
-
+    // chassis.follow("src/path.txt", 1000, 15);
 }
