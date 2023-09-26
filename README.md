@@ -13,15 +13,16 @@ Example usage:
 #include "robot/tasks.hpp"
 
 class NewTask: public Tasks {
-    /*
-    onTick is everything you want to run persistantly.
-    Much of what you run will be in onTick
-    */
 
     // You don't have to use "override", but it ensures we're doing what we want to -- our compiler will tell us if we are trying to
     // override a method that doesn't exist
     void onTick() override {
-        // do whatever you want on tick
+    /*
+        This is everything you want to run persistantly.
+        Much of what you run will be in onTick.
+        
+        Once you add it to the scheduler, this function will run every 10ms.
+    */
     }
 
     void onStart() override {
