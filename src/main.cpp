@@ -1,6 +1,5 @@
 #include "main.h"
 #include "robot/robot.hpp"
-#include "robot/auton.hpp"
 #include "robot/scheduler.hpp"
 #include "okapi/api.hpp"
 #include "robot/tasks.hpp"
@@ -20,10 +19,6 @@ void disabled() {}
 void competition_initialize() {}
 
 void autonomous() {
-}
-
-void driver_control() {
-
 }
 
 // When we start using the controller (always called when not connected to field controller)
