@@ -31,21 +31,28 @@ public:
         // mode 0 = driver, mode 1 = auton
         if (mode == 0)
         {
+            
             // drive motors
             drive->getModel()->arcade(controller.getAnalog(ControllerAnalog::leftY),
                                       controller.getAnalog(ControllerAnalog::rightX));
-            // pushers
+            
+            // pnuematic pushers
             if (controller.getDigital(ControllerDigital::L1))
             {
-                left_bumper.set_value(1);
+                // arm.move(-127);
+                // left_bumper.set_value(1);
             } else {
+                arm.move(0);
                 left_bumper.set_value(0);
             }
 
             if (controller.getDigital(ControllerDigital::R1))
             {
-                right_bumper.set_value(1);
+                intake.move(-127);
+                // arm.move(-127);
+                // right_bumper.set_value(1);
             } else {
+                intake.move(0);
                 right_bumper.set_value(0);
             }
         }

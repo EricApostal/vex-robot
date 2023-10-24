@@ -21,7 +21,7 @@ void competition_initialize() {}
 void autonomous() {
 }
 
-// When we start using the controller (always called when not connected to field controller)
+// Driver control start (always called when not connected to field controller)
 void opcontrol() {
 	bot.taskName = "robot";
 	scheduler.addTask(&bot);
