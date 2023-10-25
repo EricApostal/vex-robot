@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include "motors.hpp"
 
 /*
     Task-based system for robot module controls

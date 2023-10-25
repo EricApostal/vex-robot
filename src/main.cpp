@@ -1,14 +1,12 @@
 #include "main.h"
 #include "robot/robot.hpp"
 #include "robot/scheduler.hpp"
-#include "okapi/api.hpp"
 #include "robot/tasks.hpp"
 
 using namespace pros;
 
-okapi::Controller controller;
 Scheduler scheduler;
-Robot bot(controller);
+Robot bot = Robot();
 
 void initialize() {
 	pros::lcd::initialize();
