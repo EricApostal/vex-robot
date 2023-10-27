@@ -17,7 +17,7 @@ public:
 
     Robot()
     {
-        arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+        arm1.set_brake_mode(MOTOR_BRAKE_HOLD);
     }
 
     void onTick() override
@@ -41,50 +41,58 @@ public:
             right3.move(Right);
 
             // pnuematic pushers
-            if (controller.get_digital(E_CONTROLLER_DIGITAL_R2))
+            // if (controller.get_digital(E_CONTROLLER_DIGITAL_R2))
+            // {
+            //     right_bumper.set_value(1);
+            // }
+            // else
+            // {
+            //     right_bumper.set_value(0);
+            // }
+
+            // if (controller.get_digital(E_CONTROLLER_DIGITAL_L2))
+            // {
+            //     left_bumper.set_value(1);
+            // } else {
+            //     left_bumper.set_value(0);
+            // }
+
+
+            if (controller.get_digital(E_CONTROLLER_DIGITAL_R1))
             {
-                right_bumper.set_value(1);
+                arm1.move(-127);
+            }
+            else if (controller.get_digital(E_CONTROLLER_DIGITAL_R2))
+            {
+                arm1.move(127);
             }
             else
             {
-                right_bumper.set_value(0);
+                arm1.move(0);
             }
 
-            if (controller.get_digital(E_CONTROLLER_DIGITAL_L2))
-            {
-                left_bumper.set_value(1);
+            if (controller.get_digital(E_CONTROLLER_DIGITAL_L1)) {
+                intake_1.move(-127);
+                intake_2.move(127);
+            } else if (controller.get_digital(E_CONTROLLER_DIGITAL_L2)) {
+                intake_1.move(127);
+                intake_2.move(-127);
             } else {
-                left_bumper.set_value(0);
+                intake_1.move(0);
+                intake_2.move(0);
             }
 
-            if (controller.get_digital(E_CONTROLLER_DIGITAL_R1))
-            {
-                arm.move(80);
-            }
-            else if (controller.get_digital(E_CONTROLLER_DIGITAL_L1))
-            {
-                arm.move(-40);
-            }
-            else
-            {
-                arm.move(0);
-            }
-
-            if (controller.get_digital(E_CONTROLLER_DIGITAL_R1))
-            {
-                left_bumper.set_value(0);
-            }
 
             if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_Y))
             {
                 if (intakeState == 0)
                 {
-                    intake.move(-127);
+                    flywheel.move(-127);
                     intakeState = 1;
                 }
                 else
                 {
-                    intake.move(0);
+                    flywheel.move(0);
                     intakeState = 0;
                 }
             }
@@ -92,12 +100,20 @@ public:
             {
                 if (intakeState == 0)
                 {
-                    intake.move(127);
+                    flywheel.move(127);
                     intakeState = -1;
                 }
                 else
                 {
-                    intake.move(0);
+                    flywheel.move(0);
+                    intakeState = 0;
+                }
+            } else if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_DOWN)) {
+                if (intakeState == 0) {
+                flywheel.move(-60);
+                intakeState = 2;
+                } else {
+                    flywheel.move(0);
                     intakeState = 0;
                 }
             }

@@ -13,7 +13,10 @@ pros::Motor right3 = pros::Motor(13);
 pros::ADIDigitalOut left_bumper(1);
 pros::ADIDigitalOut right_bumper(2);
 
-pros::Motor intake(8, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor arm(2, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor flywheel(8, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor arm1(2, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+
+pros::Motor intake_1(3, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor intake_2(5, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
 
 pros::Controller controller (pros::E_CONTROLLER_MASTER);
