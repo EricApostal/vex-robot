@@ -14,6 +14,8 @@ public:
     int mode = 0;
     bool autonStarted = false;
     int intakeState = 0; // -1 puncher, 0 = off, 1 = shooter
+    bool arcadeDrive = true;
+
 
     Robot()
     {
@@ -26,11 +28,18 @@ public:
         if (mode == 0)
         {
             // drive motors
-            int power = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
-            int turn = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X);
+            int Left;
+            int Right;
+            if (arcadeDrive) {
+                int power = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+                int turn = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X);
 
-            int Left = power + turn;
-            int Right = power - turn;
+                int Left = power + turn;
+                int Right = power - turn;
+            } else {
+                Left = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+                Right = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
+            }
 
             left1.move(Left);
             left2.move(Left);
