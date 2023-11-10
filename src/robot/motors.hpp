@@ -7,7 +7,7 @@ using namespace pros;
 namespace motors
 {
     void init() {
-        arm1.set_brake_mode(MOTOR_BRAKE_HOLD);
+        arm.set_brake_mode(MOTOR_BRAKE_HOLD);
         left1.set_brake_mode(MOTOR_BRAKE_HOLD);
         left2.set_brake_mode(MOTOR_BRAKE_HOLD);
         right1.set_brake_mode(MOTOR_BRAKE_HOLD);
@@ -38,7 +38,12 @@ namespace motors
         }
 
         void move_arm(int power) {
-            arm1.move(power);
+            arm.move(power);
+        }
+
+        void move_bumpers(bool state) {
+            left_bumper.set_value(state);
+            right_bumper.set_value(state);
         }
     }
 

@@ -109,12 +109,11 @@ public:
                 bumpersOut = !bumpersOut;
             }
 
+            // todo: make less verbose
             if (bumpersOut) {
-                left_bumper.set_value(1);
-                right_bumper.set_value(1);
+                motors::system::move_bumpers(true);
             } else {
-                left_bumper.set_value(0);
-                right_bumper.set_value(0);
+                motors::system::move_bumpers(false);
             }
         }
         else if (mode == 1)
