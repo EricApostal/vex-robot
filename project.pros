@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "meredith",
+    "project_name": "Helen",
     "target": "v5",
     "templates": {
       "LemLib": {
@@ -333,7 +333,7 @@
     },
     "upload_options": {
       "description": "Official Meredith Program (Over Under)",
-      "slot": 1
+      "slot": 2
     }
   }
 }

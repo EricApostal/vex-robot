@@ -1,6 +1,7 @@
 #include "main.h"
 #include "tasks.hpp"
 #include "maps.hpp"
+#include "motors.hpp"
 
 using namespace pros;
 
@@ -19,11 +20,7 @@ public:
 
     Robot()
     {
-        arm1.set_brake_mode(MOTOR_BRAKE_HOLD);
-        left1.set_brake_mode(MOTOR_BRAKE_HOLD);
-        left2.set_brake_mode(MOTOR_BRAKE_HOLD);
-        right1.set_brake_mode(MOTOR_BRAKE_HOLD);
-        right2.set_brake_mode(MOTOR_BRAKE_HOLD);
+        motors::init();
     }
 
     void onTick() override
@@ -45,35 +42,29 @@ public:
                 Right = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
             }
 
-            left1.move(Left);
-            left2.move(Left);
-
-            right1.move(Right);
-            right2.move(Right);
+            motors::drivetrain::move_left(Left);
+            motors::drivetrain::move_right(Right);
 
 
             if (controller.get_digital(E_CONTROLLER_DIGITAL_R1))
             {
-                arm1.move(-127);
+                motors::system::move_arm(-127);
             }
             else if (controller.get_digital(E_CONTROLLER_DIGITAL_R2))
             {
-                arm1.move(127);
+                motors::system::move_arm(127);
             }
             else
             {
-                arm1.move(0);
+                motors::system::move_arm(0);
             }
 
             if (controller.get_digital(E_CONTROLLER_DIGITAL_L1)) {
-                intake_1.move(-127);
-                intake_2.move(127);
+                motors::system::move_intake(127);
             } else if (controller.get_digital(E_CONTROLLER_DIGITAL_L2)) {
-                intake_1.move(127);
-                intake_2.move(-127);
+                motors::system::move_intake(-127);
             } else {
-                intake_1.move(0);
-                intake_2.move(0);
+                motors::system::move_intake(0);
             }
 
 
@@ -81,14 +72,12 @@ public:
             {
                 if (intakeState == 0)
                 {
-                    flywheel_1.move(-127);
-                    flywheel_2.move(127);
+                    motors::system::move_flywheel(127);
                     intakeState = 1;
                 }
                 else
                 {
-                    flywheel_1.move(0);
-                    flywheel_2.move(0);
+                    motors::system::move_flywheel(0);
                     intakeState = 0;
                 }
             }
@@ -96,24 +85,20 @@ public:
             {
                 if (intakeState == 0)
                 {
-                    flywheel_1.move(127);
-                    flywheel_2.move(-127);
+                    motors::system::move_flywheel(127);
                     intakeState = -1;
                 }
                 else
                 {
-                    flywheel_1.move(0);
-                    flywheel_2.move(0);
+                    motors::system::move_flywheel(0);
                     intakeState = 0;
                 }
             } else if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_LEFT)) {
                 if (intakeState == 0) {
-                    flywheel_1.move(-60);
-                    flywheel_2.move(60);
+                    motors::system::move_flywheel(-60);
                     intakeState = 2;
                 } else {
-                    flywheel_1.move(0);
-                    flywheel_2.move(0);
+                    motors::system::move_flywheel(0);
                     intakeState = 0;
                 }
             }
