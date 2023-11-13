@@ -333,7 +333,7 @@
     },
     "upload_options": {
       "description": "Official Meredith Program (Over Under)",
-      "slot": 2
+      "slot": 1
     }
   }
 }

@@ -11,6 +11,8 @@ pros::Motor right2 = pros::Motor(13);
 pros::ADIDigitalOut left_bumper(7);
 pros::ADIDigitalOut right_bumper(8);
 
+pros::ADIDigitalOut hang_lock(6);
+
 pros::Motor flywheel_1(8, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor flywheel_2(-20, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
 

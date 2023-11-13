@@ -5,8 +5,8 @@
     Auton testing, useless otherwise. Should be added to scheduler.
 */
 void doAuton(){
-    pros::MotorGroup left_side_motors({9, 7});
-    pros::MotorGroup right_side_motors({-12, -13});
+    pros::MotorGroup left_side_motors({-9, -7});
+    pros::MotorGroup right_side_motors({12, 13});
     pros::Imu inertial_sensor(16);
     
     lemlib::Drivetrain_t drivetrain {
@@ -55,17 +55,17 @@ void doAuton(){
         100, // smallErrorTimeout
         3, // largeErrorRange
         500, // largeErrorTimeout
-        0 // slew rate
+        5 // slew rate
     };
 
     lemlib::Chassis chassis(drivetrain, lateralController, angularController, sensors);
 
     chassis.calibrate(); // calibrate the chassis
-    chassis.setPose(-35, 60, 90);
-    chassis.moveTo(-35, 24, 10000, 100);
+    chassis.setPose(-35, 60, 180);
+    chassis.moveTo(-31, 24, 10000, 100);
+    pros::delay(250);
+    // chassis.turnTo(0, 24, 5000, 100);
     // pros::delay(250);
-    // chassis.turnTo(-70, 24, 5000, 100);
-    // pros::delay(250);
-    // chassis.moveTo(-15, 24, 10000, 100);
+    chassis.moveTo(-14, 24, 10000, 100);
     
 }

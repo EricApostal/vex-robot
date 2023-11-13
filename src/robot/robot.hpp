@@ -17,6 +17,7 @@ public:
     int intakeState = 0; // -1 puncher, 0 = off, 1 = shooter
     bool arcadeDrive = true;
     bool bumpersOut = false;
+    bool hangState = false;
 
     Robot()
     {
@@ -48,7 +49,9 @@ public:
 
             if (controller.get_digital(E_CONTROLLER_DIGITAL_R1))
             {
-                motors::system::move_arm(-127);
+                if (!hangState) {
+                    motors::system::move_arm(-127);
+                }
             }
             else if (controller.get_digital(E_CONTROLLER_DIGITAL_R2))
             {
@@ -67,6 +70,10 @@ public:
                 motors::system::move_intake(0);
             }
 
+            if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)) {
+                hangState = !hangState;
+                motors::system::set_hang_lock(hangState);
+            }
 
             if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_Y))
             {

@@ -12,6 +12,8 @@ namespace motors
         left2.set_brake_mode(MOTOR_BRAKE_HOLD);
         right1.set_brake_mode(MOTOR_BRAKE_HOLD);
         right2.set_brake_mode(MOTOR_BRAKE_HOLD);
+
+        hang_lock.set_value(true); // reversed, true is unlocked
     }
     
     namespace drivetrain {
@@ -28,8 +30,8 @@ namespace motors
 
     namespace system {
         void move_intake(int power) {
-            intake_1.move(power);
-            intake_2.move(power);
+            intake_1.move(-power);
+            intake_2.move(-power);
         }
 
         void move_flywheel(int power) {
@@ -44,6 +46,10 @@ namespace motors
         void move_bumpers(bool state) {
             left_bumper.set_value(state);
             right_bumper.set_value(state);
+        }
+
+        void set_hang_lock(bool state) {
+            hang_lock.set_value(!state);
         }
     }
 
