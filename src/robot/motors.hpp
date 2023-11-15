@@ -1,3 +1,5 @@
+#pragma once
+
 #include "main.h"
 #include "tasks.hpp"
 #include "maps.hpp"

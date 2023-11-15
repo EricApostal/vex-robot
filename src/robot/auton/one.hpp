@@ -1,3 +1,5 @@
+#pragma once
+
 #include "main.h"
 #include "lemlib/api.hpp"
 
@@ -62,12 +64,11 @@ void doAuton(){
 
     lemlib::Chassis chassis(drivetrain, lateralController, angularController, sensors);
 
-    chassis.calibrate(); // calibrate the chassis
-    chassis.setPose(-35, 60, 180);
-    chassis.moveTo(-31, 24, 10000, 100);
-    pros::delay(250);
-    // chassis.turnTo(0, 24, 5000, 100);
-    // pros::delay(250);
-    chassis.moveTo(-14, 24, 10000, 100);
-    
+    // I don't know why, but there's a compile error when I try to reference `motors` or `maps` here.
+    pros::Motor arm(2, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+
+    // chassis.calibrate(); // calibrate the chassis
+    // chassis.setPose(-35, -60, 0);
+    // chassis.moveTo(-35, -7, 0, 10000);
+    arm.move_relative(1000, -127);
 }
