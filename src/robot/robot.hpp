@@ -79,7 +79,7 @@ public:
             {
                 if (intakeState == 0)
                 {
-                    motors::system::move_flywheel(127);
+                    motors::system::move_flywheel(-127);
                     intakeState = 1;
                 }
                 else
