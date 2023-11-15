@@ -9,19 +9,21 @@ void doAuton(){
     pros::MotorGroup right_side_motors({12, 13});
     pros::Imu inertial_sensor(16);
     
-    lemlib::Drivetrain_t drivetrain {
+    
+    lemlib::Drivetrain drivetrain {
         &left_side_motors, // left drivetrain motors
         &right_side_motors, // right drivetrain motors
         10.3, // track width
         3.25, // wheel diameter
-        360 // wheel rpm
+        360, // wheel rpm
+        100 // chase power
     };
 
     lemlib::TrackingWheel left_tracking_wheel(&left_side_motors, 3.25, 5.15, 360);
     lemlib::TrackingWheel right_tracking_wheel(&right_side_motors, 3.25, 5.15, 360);
 
     // odometry struct
-    lemlib::OdomSensors_t sensors {
+    lemlib::OdomSensors sensors {
         // &left_tracking_wheel, // vertical tracking wheel 1
         // &right_tracking_wheel, // vertical tracking wheel 2
         // &back_tracking_wheel, // horizontal tracking wheel 1
@@ -37,7 +39,7 @@ void doAuton(){
     };
 
     // forward/backward PID
-    lemlib::ChassisController_t lateralController {
+    lemlib::ControllerSettings lateralController {
         8, // kP
         30, // kD
         1, // smallErrorRange
@@ -48,7 +50,7 @@ void doAuton(){
     };
     
     // turning PID
-    lemlib::ChassisController_t angularController {
+    lemlib::ControllerSettings angularController {
         4, // kP
         40, // kD
         1, // smallErrorRange
