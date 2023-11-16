@@ -18,13 +18,11 @@ void disabled() {}
 void competition_initialize() {}
 
 void autonomous() {
+
 }
 
 // Driver control start (always called when not connected to field controller)
 void opcontrol() {
-
-
-
 	doAuton();
 	// bot.taskName = "robot";
 	// scheduler.addTask(&bot);

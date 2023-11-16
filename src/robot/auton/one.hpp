@@ -67,39 +67,38 @@ void doAuton()
 
     pros::Task screenTask([&]()
                           {
-        lemlib::Pose pose(-40, -60, 0);
-        while (true) {
-            // print robot location to the brain screen
-            pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
-            pros::lcd::print(1, "Y: %f", chassis.getPose().y); // y
-            pros::lcd::print(2, "Theta: %f", chassis.getPose().theta); // heading
-            // log position telemetry
-            lemlib::telemetrySink()->info("Chassis pose: {}", chassis.getPose());
-            // delay to save resources
-            pros::delay(50);
-        } });
+    lemlib::Pose pose(-40, -60, 0);
+    while (true) {
+        // print robot location to the brain screen
+        pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
+        pros::lcd::print(1, "Y: %f", chassis.getPose().y); // y
+        pros::lcd::print(2, "Theta: %f", chassis.getPose().theta); // heading
+        // log position telemetry
+        lemlib::telemetrySink()->info("Chassis pose: {}", chassis.getPose());
+        // delay to save resources
+        pros::delay(50);
+    } });
 
     chassis.calibrate(); // calibrate the chassis
     chassis.setPose(-40, -60, 0);
-    arm.move_relative(-400, 127);
+    arm.move_relative(-400, 70);
     motors::system::move_flywheel(127);
     motors::system::move_intake(127);
-    // chassis.moveTo(-36, -40, 0, 10000, true, 200, 0.8);
     chassis.moveTo(-23, -7, 0, 10000, true, 0, 0.1, 75);
     pros::delay(250);
     chassis.turnTo(47, -7, 10000);
     pros::delay(500);
     motors::system::move_intake(0);
-    arm.move_absolute(0, 100);
+    arm.move_absolute(0, 706);
     pros::delay(500);
     motors::system::move_flywheel(-127);
-    arm.move_absolute(-1650, 100);
+    arm.move_absolute(-1650, 70);
     pros::delay(1500);
     chassis.moveTo(-75, -65, 0, 2250, false, 0, 0, 75);
-    arm.move_absolute(-500, 100);
+    arm.move_absolute(-500, 70);
     chassis.setPose(-55, -53, 45, 0);
-    motors::system::move_flywheel(0);
     pros::delay(1000);
+    motors::system::move_flywheel(0);
     chassis.moveTo(7, -62, 90, 10000);
     pros::delay(10000);
 }
