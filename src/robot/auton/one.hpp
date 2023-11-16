@@ -79,13 +79,13 @@ void doAuton(){
     motors::system::move_intake(0);
     arm.move_absolute(0, 127);
     pros::delay(500);
-    arm.move_absolute(-1600, 127);
+    motors::system::move_flywheel(-127);
+    arm.move_absolute(-1650, 127);
     pros::delay(1500);
-    chassis.moveTo(-52, -39, 0, 10000, false, 0, 0, 200);
-    chassis.turnTo(-70, -54, 10000, false);
-    arm.move_absolute(-1700, 127);
+    // chassis.moveTo(-52, -39, 0, 10000, false, 0, 0, 200);
+    // chassis.turnTo(-70, -54, 10000, false);
     pros::delay(500);
-    chassis.moveTo(-62, -47, 45, 10000, false, 0, 0, 200);
+    chassis.moveTo(-71, -65, 90, 10000, false, 0, 0, 75);
     // chassis.turnTo(-70, -54, 10000, false);
     pros::delay(10000);
 }
