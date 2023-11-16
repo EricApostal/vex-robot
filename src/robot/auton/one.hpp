@@ -1,6 +1,8 @@
 #pragma once
 
 #include "main.h"
+#include "../maps.hpp"
+#include "../motors_mapped.hpp"
 #include "lemlib/api.hpp"
 
 /*
@@ -48,7 +50,7 @@ void doAuton(){
         100, // smallErrorTimeout
         3, // largeErrorRange
         500, // largeErrorTimeout
-        5 // slew rate
+        20 // slew rate
     };
     
     // turning PID
@@ -59,16 +61,24 @@ void doAuton(){
         100, // smallErrorTimeout
         3, // largeErrorRange
         500, // largeErrorTimeout
-        5 // slew rate
+        20 // slew rate
     };
 
     lemlib::Chassis chassis(drivetrain, lateralController, angularController, sensors);
 
-    // I don't know why, but there's a compile error when I try to reference `motors` or `maps` here.
-    pros::Motor arm(2, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
-
-    // chassis.calibrate(); // calibrate the chassis
-    // chassis.setPose(-35, -60, 0);
-    // chassis.moveTo(-35, -7, 0, 10000);
-    arm.move_relative(1000, -127);
+    chassis.calibrate(); // calibrate the chassis
+    chassis.setPose(-40, -60, 0);
+    arm.move_relative(-400, 127);
+    motors::system::move_flywheel(127);
+    motors::system::move_intake(127);
+    // chassis.moveTo(-36, -40, 0, 10000, true, 200, 0.8);
+    chassis.moveTo(-23, -7, 0, 10000, true, 0, 0.1, 200);
+    pros::delay(250);
+    chassis.turnTo(47, -7, 10000);
+    pros::delay(500);
+    motors::system::move_intake(0);
+    arm.move_absolute(0, 127);
+    chassis.moveTo(-54, -40, 0, 10000, false, 0, 0, 200);
+    chassis.turnTo(-70, -54, 10000, false);
+    pros::delay(10000);
 }

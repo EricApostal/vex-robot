@@ -1,7 +1,7 @@
 #include "main.h"
 #include "tasks.hpp"
 #include "maps.hpp"
-#include "motors.hpp"
+#include "motors_mapped.hpp"
 
 using namespace pros;
 
