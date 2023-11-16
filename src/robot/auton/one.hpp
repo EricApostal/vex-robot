@@ -83,7 +83,9 @@ void doAuton(){
     pros::delay(1500);
     chassis.moveTo(-52, -39, 0, 10000, false, 0, 0, 200);
     chassis.turnTo(-70, -54, 10000, false);
+    arm.move_absolute(-1700, 127);
     pros::delay(500);
-    chassis.moveTo(-56, -43, 90, 10000, false, 0, 0, 200);
+    chassis.moveTo(-62, -47, 45, 10000, false, 0, 0, 200);
+    // chassis.turnTo(-70, -54, 10000, false);
     pros::delay(10000);
 }
