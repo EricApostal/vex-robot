@@ -1,5 +1,4 @@
 #pragma once
-
 #include "main.h"
 #include "../maps.hpp"
 #include "../motors_mapped.hpp"
@@ -85,9 +84,9 @@ void doAuton()
     arm.move_relative(-400, 70);
     motors::system::move_flywheel(127);
     motors::system::move_intake(127);
-    chassis.moveTo(-23, -7, 0, 10000, true, 0, 0.1, 75);
+    chassis.moveTo(-23, -5, 0, 10000, true, 0, 0.1, 75);
     pros::delay(250);
-    chassis.turnTo(47, -7, 10000);
+    chassis.turnTo(50, 10, 10000);
     pros::delay(500);
     motors::system::move_intake(0);
     arm.move_absolute(0, 706);
@@ -95,11 +94,20 @@ void doAuton()
     motors::system::move_flywheel(-127);
     arm.move_absolute(-1650, 70);
     pros::delay(1500);
-    chassis.moveTo(-75, -65, 0, 2250, false, 0, 0, 75);
-    arm.move_absolute(-500, 70);
-    chassis.setPose(-55, -53, 45, 0);
-    pros::delay(1000);
-    motors::system::move_flywheel(0);
-    chassis.moveTo(7, -62, 90, 10000);
-    pros::delay(10000);
+    chassis.moveTo(-57, -57, 0, 2250, false, 0, 0, 75);
+    motors::system::move_intake(0);
+    motors::system::move_flywheel(-64);
+    chassis.turnTo(-47, 0, 10000);
+
+    // arm.move_absolute(-500, 70);
+    // chassis.setPose(-55, -53, 45, 0);
+    // pros::delay(1000);
+    // motors::system::move_flywheel(0);
+    // chassis.moveTo(7, -62, 90, 10000);
+
+//Just stopping the thing cuz I don't like loud noise + battery drain.
+//     pros::delay(500);
+//     motors::system::move_intake(0);
+//     motors::system::move_flywheel(0);
+//     pros::delay(10000);
 }
