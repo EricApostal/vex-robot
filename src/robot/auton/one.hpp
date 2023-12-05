@@ -11,8 +11,8 @@
 void doAuton()
 {
     pros::MotorGroup left_side_motors({-9, -7});
-    pros::MotorGroup right_side_motors({12, 13});
-    pros::Imu inertial_sensor(16);
+    pros::MotorGroup right_side_motors({16, 17});
+    pros::Imu inertial_sensor(19);
 
     lemlib::Drivetrain drivetrain{
         &left_side_motors,  // left drivetrain motors
