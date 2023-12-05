@@ -80,11 +80,11 @@ void doAuton()
 
 
     chassis.calibrate(); // calibrate the chassis
-    chassis.setPose(-40, -60, 0);
+    chassis.setPose(-45, -63, 0);
     arm.move_relative(-400, 70);
     motors::system::move_flywheel(127);
     motors::system::move_intake(127);
-    chassis.moveTo(-23, -5, 0, 10000, true, 0, 0.1, 75);
+    chassis.moveTo(-28, -5, 0, 10000, true, 0, 0.1, 75);
     pros::delay(250);
     chassis.turnTo(50, 10, 10000);
     pros::delay(500);
@@ -92,12 +92,30 @@ void doAuton()
     arm.move_absolute(0, 706);
     pros::delay(500);
     motors::system::move_flywheel(-127);
-    arm.move_absolute(-1650, 70);
-    pros::delay(1500);
-    chassis.moveTo(-57, -57, 0, 2250, false, 0, 0, 75);
+    arm.move_absolute(-1650, 700);
+    pros::delay(1000);
     motors::system::move_intake(0);
-    motors::system::move_flywheel(-64);
-    chassis.turnTo(-47, 0, 10000);
+    motors::system::move_flywheel(0);
+    chassis.moveTo(-52, -45, 0, 2250, false, 0, 0, 75);
+    pros::delay(1000);
+    chassis.turnTo(60, -60, 500);
+    pros::delay(300);
+    chassis.turnTo(24, 24, 500);
+    pros::delay(300);
+    chassis.turnTo(60, -60, 500);
+    pros::delay(300);
+    chassis.turnTo(24, 24, 500);
+    pros::delay(300);
+    arm.move_absolute(-950, 200);
+    pros::delay(500);
+    chassis.turnTo(-60, -60, 10000);
+    pros::delay(500);
+    chassis.moveTo(5, -62, 0, 10000, false, 0, 0.1, 75);
+    pros::delay(1000);
+    // chassis.turnTo(-60, -40, 10000);
+    // pros::delay(1000);
+    // chassis.moveTo(-1, -60, 0, 10000, false, 0, 0.1, 75);
+    pros::delay(10000);
 
     // arm.move_absolute(-500, 70);
     // chassis.setPose(-55, -53, 45, 0);
