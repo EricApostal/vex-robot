@@ -2,7 +2,7 @@
 #include "robot/robot.hpp"
 #include "robot/scheduler.hpp"
 #include "robot/tasks.hpp"
-#include "robot/auton/one.hpp"
+#include "robot/auton/far_side.hpp"
 
 using namespace pros;
 
