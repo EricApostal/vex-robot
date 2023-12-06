@@ -84,13 +84,13 @@ void doAuton()
     arm.move_relative(-400, 70);
     motors::system::move_flywheel(127);
     motors::system::move_intake(127);
-    chassis.moveTo(-28, -5, 0, 10000, true, 0, 0.1, 75);
+    chassis.moveTo(-28, -5, 0, 10000, true, 0, 0.1, 100);
     pros::delay(250);
     chassis.turnTo(50, 10, 10000);
     pros::delay(500);
     motors::system::move_intake(0);
     arm.move_absolute(0, 706);
-    pros::delay(500);
+    pros::delay(1000);
     motors::system::move_flywheel(-127);
     arm.move_absolute(-1650, 700);
     pros::delay(1000);
@@ -110,7 +110,7 @@ void doAuton()
     pros::delay(500);
     chassis.turnTo(-60, -60, 10000);
     pros::delay(500);
-    chassis.moveTo(5, -62, 0, 10000, false, 0, 0.1, 75);
+    chassis.moveTo(5, -62, 270, 10000, false, 0, 0.1, 75);
     pros::delay(1000);
     // chassis.turnTo(-60, -40, 10000);
     // pros::delay(1000);
