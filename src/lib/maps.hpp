@@ -8,6 +8,9 @@ pros::Motor left2 = pros::Motor(-7);
 pros::Motor right1 = pros::Motor(16);
 pros::Motor right2 = pros::Motor(17);
 
+pros::MotorGroup left_side_motors({-9, -7});
+pros::MotorGroup right_side_motors({16, 17});
+
 pros::ADIDigitalOut left_bumper(7);
 pros::ADIDigitalOut right_bumper(8);
 
@@ -20,5 +23,7 @@ pros::Motor arm(2, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREE
 
 pros::Motor intake_1(18, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor intake_2(-5, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
+
+pros::Imu inertial_sensor(19);
 
 pros::Controller controller (pros::E_CONTROLLER_MASTER);
