@@ -9,8 +9,6 @@
     Auton testing, useless otherwise. Should be added to scheduler.
 */
 
-void calibrate() {}
-
 void doAuton()
 {
     chassis.setPose(-45, -63, 0);

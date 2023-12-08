@@ -3,6 +3,7 @@
 #include "lib/scheduler.hpp"
 #include "lib/tasks.hpp"
 #include "robot/auton/far_side.hpp"
+#include "robot/auton/skills.hpp"
 #include "robot/chassis.hpp"
 
 using namespace pros;
@@ -27,7 +28,9 @@ void autonomous() {
 
 // Driver control start (always called when not connected to field controller)
 void opcontrol() {
-	bot.taskName = "robot";
-	scheduler.addTask(&bot);
-	scheduler.startScheduler();
+	pros::delay(2500);
+	doSkills();
+	// bot.taskName = "robot";
+	// scheduler.addTask(&bot);
+	// scheduler.startScheduler();
 }
