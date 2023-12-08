@@ -2,7 +2,6 @@
 #include "../lib/tasks.hpp"
 #include "../lib/maps.hpp"
 #include "../lib/motors_mapped.hpp"
-#include "auton/controller.hpp"
 
 using namespace pros;
 
@@ -13,34 +12,20 @@ public:
     0 = Driver
     1 = Auton
     */
-    int mode = 1;
+    int mode = 0;
     bool autonStarted = false;
     int intakeState = 0; // -1 puncher, 0 = off, 1 = shooter
     bool arcadeDrive = true;
     bool bumpersOut = false;
     bool hangState = false;
-    std::unique_ptr<AutonController> autonController;
 
     Robot()
     {
         motors::init();
-        autonController = std::make_unique<AutonController>();
-    }
-
-    void runAuton() {
-        // (*autonController).startAuton();
-        (*autonController).chassis.setPose(-23, 0, 0);
-        (*autonController).chassis.turnTo(0, 0, 10000);
-        (*autonController).chassis.moveToPoint(-22, 0, 10000, false, 127, false);
     }
 
     void onTick() override
     {
-        // controllerTick();
-    }
-    private:
-    // Tick for all controller bound input
-        void controllerTick() {
         // mode 0 = driver, mode 1 = auton
         if (mode == 0)
         {
