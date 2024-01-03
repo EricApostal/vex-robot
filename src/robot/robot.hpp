@@ -79,7 +79,7 @@ public:
             {
                 if (intakeState == 0)
                 {
-                    motors::system::set_flywheel_velocity(-500);
+                    motors::system::set_flywheel_velocity(-450);
                     intakeState = 1;
                 }
                 else
@@ -92,7 +92,7 @@ public:
             {
                 if (intakeState == 0)
                 {
-                    motors::system::set_flywheel_velocity(500);
+                    motors::system::set_flywheel_velocity(450);
                     intakeState = -1;
                 }
                 else

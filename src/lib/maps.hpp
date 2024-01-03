@@ -16,8 +16,8 @@ pros::ADIDigitalOut right_bumper(8);
 
 pros::ADIDigitalOut hang_lock(6);
 
-pros::Motor flywheel_1(8, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor flywheel_2(-20, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
+sylib::Motor flywheel_1(8, 600, false, sylib::SpeedControllerInfo());
+sylib::Motor flywheel_2(20, 600, true, sylib::SpeedControllerInfo());
 
 pros::Motor arm(2, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
 

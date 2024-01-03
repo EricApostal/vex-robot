@@ -12,6 +12,7 @@ Scheduler scheduler;
 Robot bot = Robot();
 
 void initialize() {
+	sylib::initialize();
 	pros::lcd::initialize();
 	pros::Task initLem([&]() {
 		init_chassis();

@@ -37,8 +37,8 @@ namespace motors
         }
 
         void set_flywheel_velocity(int vel) {
-            flywheel_1.move_velocity(vel);
-            flywheel_2.move_velocity(vel);
+            flywheel_1.set_velocity_custom_controller(vel);
+            flywheel_2.set_velocity_custom_controller(vel);
         }
 
 
