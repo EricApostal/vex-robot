@@ -36,10 +36,11 @@ namespace motors
             intake_2.move(-power);
         }
 
-        void move_flywheel(int power) {
-            flywheel_1.move(power);
-            flywheel_2.move(power);
+        void set_flywheel_velocity(int vel) {
+            flywheel_1.move_velocity(vel);
+            flywheel_2.move_velocity(vel);
         }
+
 
         void move_arm(int power) {
             arm.move(power);

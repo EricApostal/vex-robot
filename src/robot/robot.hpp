@@ -79,12 +79,12 @@ public:
             {
                 if (intakeState == 0)
                 {
-                    motors::system::move_flywheel(-127);
+                    motors::system::set_flywheel_velocity(-500);
                     intakeState = 1;
                 }
                 else
                 {
-                    motors::system::move_flywheel(0);
+                    motors::system::set_flywheel_velocity(0);
                     intakeState = 0;
                 }
             }
@@ -92,20 +92,20 @@ public:
             {
                 if (intakeState == 0)
                 {
-                    motors::system::move_flywheel(127);
+                    motors::system::set_flywheel_velocity(500);
                     intakeState = -1;
                 }
                 else
                 {
-                    motors::system::move_flywheel(0);
+                    motors::system::set_flywheel_velocity(0);
                     intakeState = 0;
                 }
             } else if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_LEFT)) {
                 if (intakeState == 0) {
-                    motors::system::move_flywheel(-60);
+                    motors::system::set_flywheel_velocity(-60);
                     intakeState = 2;
                 } else {
-                    motors::system::move_flywheel(0);
+                    motors::system::set_flywheel_velocity(0);
                     intakeState = 0;
                 }
             }
