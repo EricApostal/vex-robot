@@ -24,7 +24,7 @@ void disabled() {}
 void competition_initialize() {}
 
 void autonomous() {
-	doAuton();
+	// doAuton();
 }
 
 // Driver control start (always called when not connected to field controller)

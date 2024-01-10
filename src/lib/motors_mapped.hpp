@@ -8,51 +8,28 @@ using namespace pros;
 
 namespace motors
 {
-    void init() {
-        arm.set_brake_mode(MOTOR_BRAKE_HOLD);
-        left1.set_brake_mode(MOTOR_BRAKE_HOLD);
-        left2.set_brake_mode(MOTOR_BRAKE_HOLD);
-        right1.set_brake_mode(MOTOR_BRAKE_HOLD);
-        right2.set_brake_mode(MOTOR_BRAKE_HOLD);
-
-        hang_lock.set_value(true); // reversed, true is unlocked
-    }
+    void init() {}
     
     namespace drivetrain {
         void move_left(int power) {
-            left1.move(power);
-            left2.move(power);
+            left_side_motors.move(power);
+            right_side_motors.move(-power);
         }
 
         void move_right(int power) {
-            right1.move(power);
-            right2.move(power);
+            left_side_motors.move(-power);
+            right_side_motors.move(power);
         }
     }
 
     namespace system {
         void move_intake(int power) {
-            intake_1.move(-power);
-            intake_2.move(-power);
-        }
-
-        void set_flywheel_velocity(int vel) {
-            flywheel_1.set_velocity_custom_controller(vel);
-            flywheel_2.set_velocity_custom_controller(vel);
-        }
-
-
-        void move_arm(int power) {
-            arm.move(power);
+            intake.move(power);
         }
 
         void move_bumpers(bool state) {
             left_bumper.set_value(state);
             right_bumper.set_value(state);
-        }
-
-        void set_hang_lock(bool state) {
-            hang_lock.set_value(!state);
         }
     }
 

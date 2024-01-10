@@ -1,28 +1,23 @@
 #pragma once
 #include "main.h"
 
-// Drive Motors
-pros::Motor left1 = pros::Motor(-9);
-pros::Motor left2 = pros::Motor(-7);
+pros::MotorGroup left_side_motors({11, 12, 13});
+pros::MotorGroup right_side_motors({18, 19, 20});
 
-pros::Motor right1 = pros::Motor(16);
-pros::Motor right2 = pros::Motor(17);
+pros::Motor left1(11, pros::E_MOTOR_GEARSET_06, true, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor left2(12, pros::E_MOTOR_GEARSET_06, true, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor left3(13, pros::E_MOTOR_GEARSET_06, true, pros::E_MOTOR_ENCODER_DEGREES);
 
-pros::MotorGroup left_side_motors({-9, -7});
-pros::MotorGroup right_side_motors({16, 17});
+pros::Motor right1(18, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor right2(19, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor right3(20, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);
 
-pros::ADIDigitalOut left_bumper(7);
-pros::ADIDigitalOut right_bumper(8);
+pros::ADIDigitalOut left_bumper(1);
+pros::ADIDigitalOut right_bumper(2);
 
-pros::ADIDigitalOut hang_lock(6);
+pros::Motor slapper (5, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
 
-sylib::Motor flywheel_1(8, 600, false, sylib::SpeedControllerInfo());
-sylib::Motor flywheel_2(20, 600, true, sylib::SpeedControllerInfo());
-
-pros::Motor arm(2, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
-
-pros::Motor intake_1(18, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor intake_2(-5, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor intake(10, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
 
 pros::Imu inertial_sensor(19);
 
