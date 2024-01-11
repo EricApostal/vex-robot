@@ -40,7 +40,7 @@ public:
 
             left1.move(Left);
             left2.move(Left);
-            left2.move(Left);
+            left3.move(Left);
 
             right1.move(Right);
             right2.move(Right);
@@ -70,8 +70,8 @@ public:
                 }
 
                 if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)) {
-                    slapperState = !slapperState;
                     slapper.move(slapperState ? 0 : 127);
+                    slapperState = !slapperState;
                 }
 
             //     if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_Y))
