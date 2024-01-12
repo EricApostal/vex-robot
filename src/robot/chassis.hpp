@@ -15,20 +15,12 @@ lemlib::Drivetrain drivetrain{
 lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, lemlib::Omniwheel::NEW_275_HALF, 2.25);
 
 // odometry struct
-// lemlib::OdomSensors sensors{
-//     nullptr,                    // vertical tracking wheel 1
-//     nullptr,                    // vertical tracking wheel 2
-//     &horizontal_tracking_wheel, // horizontal tracking wheel 1
-//     nullptr,                    // we don't have a second tracking wheel, so we set it to nullptr
-//     &inertial_sensor            // inertial sensor
-// };
-
 lemlib::OdomSensors sensors{
-    nullptr,
-    &horizontal_tracking_wheel,
-    nullptr,
-    nullptr,
-    &inertial_sensor
+    nullptr,                    // vertical tracking wheel 1
+    nullptr,                    // vertical tracking wheel 2
+    &horizontal_tracking_wheel, // horizontal tracking wheel 1
+    nullptr,                    // we don't have a second tracking wheel, so we set it to nullptr
+    &inertial_sensor            // inertial sensor
 };
 
 // forward/backward PID
@@ -42,7 +34,6 @@ lemlib::ControllerSettings linearController(
     20,  // maximum acceleration (slew)
     0,
     0
-
 );
 
 // turning PID
