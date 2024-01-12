@@ -23,13 +23,14 @@ void disabled() {}
 void competition_initialize() {}
 
 void autonomous() {
-	doAuton();
+	// doAuton();
 }
 
 // Driver control start (always called when not connected to field controller)
 void opcontrol() {
-	// pros::delay(2500);
-	bot.taskName = "robot";
-	scheduler.addTask(&bot);
-	scheduler.startScheduler();
+	pros::delay(2500);
+	doAuton();
+	// bot.taskName = "robot";
+	// scheduler.addTask(&bot);
+	// scheduler.startScheduler();
 }

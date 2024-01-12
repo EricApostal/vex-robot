@@ -12,7 +12,7 @@ lemlib::Drivetrain drivetrain{
     2                 // chase power
 };
 
-lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, lemlib::Omniwheel::NEW_275_HALF, 2.25);
+lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, lemlib::Omniwheel::NEW_275_HALF, 2.5);
 
 // odometry struct
 lemlib::OdomSensors sensors{
@@ -38,15 +38,15 @@ lemlib::ControllerSettings linearController(
 
 // turning PID
 lemlib::ControllerSettings angularController(
-    2, // proportional gain (kP)
+    10, // proportional gain (kP)
+    5,
+    20, // derivative gain (kD)
     0,
-    10, // derivative gain (kD)
-    0,
-    1, // small error range, in degrees
+    10, // small error range, in degrees
     100, // small error range timeout, in milliseconds
-    3, // large error range, in degrees
+    100, // large error range, in degrees
     500, // large error range timeout, in milliseconds
-    0 // maximum acceleration (slew). 0 means no limit
+    1 // maximum acceleration (slew). 0 means no limit
 );
     
 lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors);
@@ -54,7 +54,7 @@ lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors
 void init_chassis()
 {
     chassis.calibrate();
-    chassis.setPose(lemlib::Pose(-20, 0));
+    chassis.setPose(lemlib::Pose(0, 0));
 
     pros::Task screenTask([&]()
                           {
