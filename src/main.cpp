@@ -28,7 +28,7 @@ void autonomous() {
 
 // Driver control start (always called when not connected to field controller)
 void opcontrol() {
-	pros::delay(2500);
+	pros::delay(3000);
 	doAuton();
 	// bot.taskName = "robot";
 	// scheduler.addTask(&bot);

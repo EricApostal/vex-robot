@@ -9,7 +9,7 @@ lemlib::Drivetrain drivetrain{
     11.2,               // track width
     lemlib::Omniwheel::NEW_325,               // wheel diameter
     450,                // wheel rpm
-    2                 // chase power
+    2               // chase power
 };
 
 lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, lemlib::Omniwheel::NEW_275_HALF, 2.5);
@@ -25,7 +25,7 @@ lemlib::OdomSensors sensors{
 
 // forward/backward PID
 lemlib::ControllerSettings linearController(
-    10, // proportional gain (kP)
+    1, // proportional gain (kP)
     0,
     30, // derivative gain (kD)
     0,
@@ -38,15 +38,15 @@ lemlib::ControllerSettings linearController(
 
 // turning PID
 lemlib::ControllerSettings angularController(
-    10, // proportional gain (kP)
-    5,
-    20, // derivative gain (kD)
+    0.5, // proportional gain (kP)
+    0, // integral gain (kI)
+    50, // derivative gain (kD)
     0,
     10, // small error range, in degrees
     100, // small error range timeout, in milliseconds
     100, // large error range, in degrees
     500, // large error range timeout, in milliseconds
-    1 // maximum acceleration (slew). 0 means no limit
+    2 // maximum acceleration (slew). 0 means no limit
 );
     
 lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors);
