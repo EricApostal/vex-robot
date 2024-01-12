@@ -2,6 +2,7 @@
 #include "../lib/tasks.hpp"
 #include "../lib/maps.hpp"
 #include "../lib/motors_mapped.hpp"
+#include "../robot/chassis.hpp"
 
 using namespace pros;
 
@@ -30,49 +31,46 @@ public:
         if (mode == 0)
         {
             // drive motors
-            int Left = 0;
-            int Right = 0;
-            int power = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
-            int turn = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X);
+            // int Left = 0;
+            // int Right = 0;
+            // int power = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+            // int turn = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X);
 
-            Left = power + turn;
-            Right = power - turn;
+            // Left = power + turn;
+            // Right = power - turn;
 
-            left1.move(Left);
-            left2.move(Left);
-            left3.move(Left);
+            // left1.move(Left);
+            // left2.move(Left);
+            // left3.move(Left);
 
-            right1.move(Right);
-            right2.move(Right);
-            right3.move(Right);
+            // right1.move(Right);
+            // right2.move(Right);
+            // right3.move(Right);
 
-            //     if (controller.get_digital(E_CONTROLLER_DIGITAL_R1))
-            //     {
-            //         if (!hangState) {
-            //             motors::system::move_arm(-127);
-            //         }
-            //     }
-            //     else if (controller.get_digital(E_CONTROLLER_DIGITAL_R2))
-            //     {
-            //         motors::system::move_arm(127);
-            //     }
-            //     else
-            //     {
-            //         motors::system::move_arm(0);
-            //     }
+            int leftY = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+            int rightX = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
-                if (controller.get_digital(E_CONTROLLER_DIGITAL_R1)) {
-                    motors::system::move_intake(127);
-                } else if (controller.get_digital(E_CONTROLLER_DIGITAL_R2)) {
-                    motors::system::move_intake(-127);
-                } else {
-                    motors::system::move_intake(0);
-                }
+            // move the robot
+            chassis.curvature(leftY, rightX);
 
-                if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_UP)) {
-                    slapper.move(slapperState ? 0 : 127);
-                    slapperState = !slapperState;
-                }
+                if (controller.get_digital(E_CONTROLLER_DIGITAL_R1))
+            {
+                motors::system::move_intake(127);
+            }
+            else if (controller.get_digital(E_CONTROLLER_DIGITAL_R2))
+            {
+                motors::system::move_intake(-127);
+            }
+            else
+            {
+                motors::system::move_intake(0);
+            }
+
+            if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_UP))
+            {
+                slapper.move(slapperState ? 0 : 127);
+                slapperState = !slapperState;
+            }
 
             //     if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_Y))
             //     {
