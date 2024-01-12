@@ -31,27 +31,27 @@ public:
         if (mode == 0)
         {
             // drive motors
-            // int Left = 0;
-            // int Right = 0;
-            // int power = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
-            // int turn = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X);
+            int Left = 0;
+            int Right = 0;
+            int power = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+            int turn = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X);
 
-            // Left = power + turn;
-            // Right = power - turn;
+            Left = power + turn;
+            Right = power - turn;
 
-            // left1.move(Left);
-            // left2.move(Left);
-            // left3.move(Left);
+            left1.move(Left);
+            left2.move(Left);
+            left3.move(Left);
 
-            // right1.move(Right);
-            // right2.move(Right);
-            // right3.move(Right);
+            right1.move(Right);
+            right2.move(Right);
+            right3.move(Right);
 
             int leftY = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
             int rightX = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
             // move the robot
-            chassis.curvature(leftY, rightX);
+            // chassis.curvature(leftY, rightX);
 
                 if (controller.get_digital(E_CONTROLLER_DIGITAL_R1))
             {
