@@ -16,5 +16,5 @@ void doAuton()
     chassis.setPose(0, 0, 0);
     // chassis.moveToPose(0, 0, 0, 10000);
     // chassis.moveToPoint(0, 0, 20000);
-    chassis.turnTo(30, 0, 10000, false, 50);
+    chassis.turnTo(30, 0, 10000, true, 127);
 }
