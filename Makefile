@@ -16,8 +16,6 @@ WARNFLAGS+=
 EXTRA_CFLAGS=
 EXTRA_CXXFLAGS=
 
-CFLAGS += -I/include/luau/VM/include
-
 # Set to 1 to enable hot/cold linking
 USE_PACKAGE:=1
 
@@ -34,15 +32,12 @@ VERSION:=1.0.0
 # this line excludes opcontrol.c and similar files
 EXCLUDE_SRC_FROM_LIB+=$(foreach file, $(SRCDIR)/main,$(foreach cext,$(CEXTS),$(file).$(cext)) $(foreach cxxext,$(CXXEXTS),$(file).$(cxxext)))
 
-
 # files that get distributed to every user (beyond your source archive) - add
 # whatever files you want here. This line is configured to add all header files
 # that are in the the include directory get exported
 TEMPLATE_FILES=$(INCDIR)/**/*.h $(INCDIR)/**/*.hpp
 
 .DEFAULT_GOAL=quick
-
-
 
 ################################################################################
 ################################################################################

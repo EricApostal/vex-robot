@@ -9,8 +9,8 @@ pros::Motor right1(18, pros::E_MOTOR_GEARSET_06, false);
 pros::Motor right2(19, pros::E_MOTOR_GEARSET_06, false);
 pros::Motor right3(20, pros::E_MOTOR_GEARSET_06, false);
 
-pros::MotorGroup left_side_motors({left1, left2, left3});
-pros::MotorGroup right_side_motors({right1, right2, right3});
+pros::MotorGroup left_side_motors({left1});
+pros::MotorGroup right_side_motors({left2});
 
 pros::ADIDigitalOut left_bumper(1);
 pros::ADIDigitalOut right_bumper(2);
@@ -20,6 +20,6 @@ pros::Motor intake(10, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCOD
 
 pros::Imu inertial_sensor(16);
 
-pros::Rotation horizontal_tracking(6);
+pros::Rotation horizontal_tracking(6, false);
 
 pros::Controller controller (pros::E_CONTROLLER_MASTER);

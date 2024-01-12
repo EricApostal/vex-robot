@@ -7,9 +7,9 @@ lemlib::Drivetrain drivetrain{
     &left_side_motors,  // left drivetrain motors
     &right_side_motors, // right drivetrain motors
     11.2,               // track width
-    3.25,               // wheel diameter
+    lemlib::Omniwheel::NEW_325,               // wheel diameter
     450,                // wheel rpm
-    100                 // chase power
+    2                 // chase power
 };
 
 lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, lemlib::Omniwheel::NEW_275_HALF, 2.25);
@@ -25,30 +25,30 @@ lemlib::OdomSensors sensors{
 
 // forward/backward PID
 lemlib::ControllerSettings linearController(
-    10,  // proportional gain (kP)
-    30,  // derivative gain (kD)
-    1,   // small error range, in inches
-    100, // small error range timeout, in milliseconds
-    3,   // large error range, in inches
-    500, // large error range timeout, in milliseconds
-    20,  // maximum acceleration (slew)
+    10, // proportional gain (kP)
     0,
-    0
+    30, // derivative gain (kD)
+    0,
+    1, // small error range, in inches
+    100, // small error range timeout, in milliseconds
+    3, // large error range, in inches
+    500, // large error range timeout, in milliseconds
+    20 // maximum acceleration (slew)
 );
 
 // turning PID
 lemlib::ControllerSettings angularController(
-    2,   // proportional gain (kP)
-    10,  // derivative gain (kD)
-    1,   // small error range, in degrees
-    100, // small error range timeout, in milliseconds
-    3,   // large error range, in degrees
-    500, // large error range timeout, in milliseconds
-    0,   // maximum acceleration (slew). 0 means no limit
+    2, // proportional gain (kP)
     0,
-    0
+    10, // derivative gain (kD)
+    0,
+    1, // small error range, in degrees
+    100, // small error range timeout, in milliseconds
+    3, // large error range, in degrees
+    500, // large error range timeout, in milliseconds
+    0 // maximum acceleration (slew). 0 means no limit
 );
-
+    
 lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors);
 
 void init_chassis()
