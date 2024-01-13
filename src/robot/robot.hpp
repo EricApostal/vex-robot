@@ -71,42 +71,7 @@ public:
                 slapper.move(slapperState ? 0 : 127);
                 slapperState = !slapperState;
             }
-
-            //     if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_Y))
-            //     {
-            //         if (intakeState == 0)
-            //         {
-            //             motors::system::set_flywheel_velocity(-450);
-            //             intakeState = 1;
-            //         }
-            //         else
-            //         {
-            //             motors::system::set_flywheel_velocity(0);
-            //             intakeState = 0;
-            //         }
-            //     }
-            //     else if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_A))
-            //     {
-            //         if (intakeState == 0)
-            //         {
-            //             motors::system::set_flywheel_velocity(450);
-            //             intakeState = -1;
-            //         }
-            //         else
-            //         {
-            //             motors::system::set_flywheel_velocity(0);
-            //             intakeState = 0;
-            //         }
-            //     } else if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_LEFT)) {
-            //         if (intakeState == 0) {
-            //             motors::system::set_flywheel_velocity(-60);
-            //             intakeState = 2;
-            //         } else {
-            //             motors::system::set_flywheel_velocity(0);
-            //             intakeState = 0;
-            //         }
-            //     }
-
+            
             if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_B))
             {
                 bumpersOut = !bumpersOut;

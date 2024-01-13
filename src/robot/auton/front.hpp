@@ -11,7 +11,7 @@
 
 // https://path.jerryio.com/
 
-void doAuton()
+void front_auton()
 {  
     left_side_motors.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
 	right_side_motors.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
