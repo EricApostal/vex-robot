@@ -15,6 +15,8 @@ pros::MotorGroup right_side_motors({right1, right2, right3});
 pros::ADIDigitalOut left_bumper(1);
 pros::ADIDigitalOut right_bumper(2);
 
+pros::ADIDigitalOut eric_dooley_last_minute_hang(3);
+
 pros::Motor slapper (17, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor intake(10, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
 

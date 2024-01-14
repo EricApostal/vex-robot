@@ -19,6 +19,7 @@ public:
     bool arcadeDrive = true;
     bool bumpersOut = false;
     bool slapperState = false;
+    bool hangState = false;
 
     Robot()
     {
@@ -86,14 +87,12 @@ public:
                 motors::system::move_bumpers(false);
             }
 
-            // }
-            // else if (mode == 1)
-            // {
-            //     // start auton task
-            //     if (!autonStarted)
-            //     {
-            //         autonStarted = true;
-            //     }
+            if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_DOWN))
+            {
+                hangState = !hangState;
+                eric_dooley_last_minute_hang.set_value(hangState);
+            }
+
         }
     }
 };
