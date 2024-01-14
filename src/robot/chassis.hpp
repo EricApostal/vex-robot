@@ -6,7 +6,7 @@
 lemlib::Drivetrain drivetrain{
     &left_side_motors,  // left drivetrain motors
     &right_side_motors, // right drivetrain motors
-    11.2,               // track width
+    11.5,               // track width
     lemlib::Omniwheel::NEW_325,               // wheel diameter
     450,                // wheel rpm
     2               // chase power
@@ -54,7 +54,7 @@ lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors
 void init_chassis()
 {
     chassis.calibrate();
-    chassis.setPose(lemlib::Pose(0, 0));
+    chassis.setPose(-40, -53, 90);
 
     pros::Task screenTask([&]()
                           {
