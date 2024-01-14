@@ -13,7 +13,7 @@ Robot bot = Robot();
 
 void initialize() {
 	pros::lcd::initialize();
-	
+
 	left_side_motors.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
 	right_side_motors.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
 	// selector::init();
@@ -33,10 +33,14 @@ void autonomous() {
 	// 	skills_auton();
 	// }
 	skills_auton();
+	// front_auton();
 }
 
 // Driver control start (always called when not connected to field controller)
 void opcontrol() {
+	left_side_motors.set_brake_modes(pros::E_MOTOR_BRAKE_COAST);
+	right_side_motors.set_brake_modes(pros::E_MOTOR_BRAKE_COAST);
+
 	bot.taskName = "robot";
 	scheduler.addTask(&bot);
 	scheduler.startScheduler();
