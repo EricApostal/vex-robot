@@ -50,12 +50,12 @@ void skills_auton()
     // back up from right
     chassis.turnTo(47, -47, 1000, false, 50);
     chassis.moveToPoint(47, -47, 10000, false, baseSpeed);
-    chassis.turnTo(47, -26, 1000, true, baseSpeed);
-    chassis.moveToPoint(47, -26, 10000, true, baseSpeed);
+    chassis.turnTo(35, -34, 1000, true, baseSpeed);
+    chassis.moveToPoint(35, -34, 10000, true, baseSpeed);
     chassis.turnTo(15, -26, 1000, true, 50);
     chassis.moveToPoint(15, -26, 10000, true, baseSpeed);
 
-    // line up front push
+    // line up front push   
     chassis.moveToPoint(15, -26, 10000, true, baseSpeed);
     chassis.waitUntilDone();
 
