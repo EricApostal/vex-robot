@@ -45,7 +45,7 @@ void skills_auton()
     chassis.moveToPoint(66, -34, 2000, false, baseSpeed);
     chassis.waitUntilDone();
     pros::delay(500);
-    chassis.moveToPoint(66, -15, 200, true, 100);
+    chassis.moveToPoint(66, -15, 2000, true, 100);
 
     // back up from right
     chassis.turnTo(47, -47, 1000, false, 50);
@@ -54,9 +54,6 @@ void skills_auton()
     chassis.moveToPoint(35, -34, 2000, true, baseSpeed);
     chassis.turnTo(15, -26, 1000, true, baseSpeed);
     chassis.moveToPoint(15, -26, 2000, true, baseSpeed);
-
-    // line up front push   
-    chassis.moveToPoint(15, -26, 1000, true, baseSpeed);
     chassis.waitUntilDone();
 
     // push to front right
