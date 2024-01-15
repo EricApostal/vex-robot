@@ -15,7 +15,7 @@ void skills_auton()
     left_side_motors.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
 	right_side_motors.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
     chassis.moveToPoint(-52, -52, 10000, false, baseSpeed);
-    chassis.turnTo(46, 0, 1000);
+    chassis.turnTo(46, -5, 1000);
     chassis.moveToPoint(-54, -54, 10000, false, baseSpeed);
     chassis.waitUntilDone();
 
@@ -51,12 +51,12 @@ void skills_auton()
     chassis.turnTo(47, -47, 1000, false, 50);
     chassis.moveToPoint(47, -47, 10000, false, baseSpeed);
     chassis.turnTo(35, -34, 1000, true, baseSpeed);
-    chassis.moveToPoint(35, -34, 10000, true, baseSpeed);
-    chassis.turnTo(15, -26, 1000, true, 50);
-    chassis.moveToPoint(15, -26, 10000, true, baseSpeed);
+    chassis.moveToPoint(35, -34, 2000, true, baseSpeed);
+    chassis.turnTo(15, -26, 1000, true, baseSpeed);
+    chassis.moveToPoint(15, -26, 2000, true, baseSpeed);
 
     // line up front push   
-    chassis.moveToPoint(15, -26, 10000, true, baseSpeed);
+    chassis.moveToPoint(15, -26, 1000, true, baseSpeed);
     chassis.waitUntilDone();
 
     // push to front right
