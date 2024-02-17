@@ -32,8 +32,8 @@ void autonomous() {
 	// if (current_selector == 1 | current_selector == 2) {
 	// 	skills_auton();
 	// }
-	// skills_auton();
-	front_auton();
+	skills_auton();
+	// front_auton();
 }
 
 // Driver control start (always called when not connected to field controller)

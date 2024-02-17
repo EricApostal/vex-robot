@@ -17,12 +17,12 @@ pros::ADIDigitalOut right_bumper(2);
 
 pros::ADIDigitalOut eric_dooley_last_minute_hang(3);
 
-pros::Motor slapper (14, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor intake(10, pros::E_MOTOR_GEARSET_INVALID, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor slapper (14, pros::E_MOTOR_GEARSET_36, true, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor intake(10, pros::E_MOTOR_GEARSET_INVALID, true, pros::E_MOTOR_ENCODER_DEGREES);
 
 pros::Imu inertial_sensor(16);
 
-pros::Rotation horizontal_tracking(1, false);
-pros::Rotation vertical_tracking(2, false);
+pros::Rotation horizontal_tracking(1, true);
+pros::Rotation vertical_tracking(2, true);
 
 pros::Controller controller (pros::E_CONTROLLER_MASTER);

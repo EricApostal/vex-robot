@@ -348,7 +348,7 @@
     },
     "upload_options": {
       "after": "screen",
-      "slot": 2
+      "slot": 1
     }
   }
 }
