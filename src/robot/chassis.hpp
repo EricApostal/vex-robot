@@ -12,8 +12,8 @@ lemlib::Drivetrain drivetrain{
     2               // chase power
 };
 
-lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, 2.0, 6);
-lemlib::TrackingWheel vertical_tracking_wheel(&vertical_tracking, 2.0, 0);
+lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, 2.0, 2.5);
+lemlib::TrackingWheel vertical_tracking_wheel(&vertical_tracking, 2.0, 2.5);
 
 // odometry struct
 lemlib::OdomSensors sensors{
