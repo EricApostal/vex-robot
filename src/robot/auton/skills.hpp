@@ -20,7 +20,7 @@ void skills_auton()
     chassis.waitUntilDone();
 
     slapper.move(127);
-    pros::delay(1000); // 30000
+    pros::delay(30000); // 30000
     slapper.move(0);
 
     chassis.waitUntilDone();
@@ -28,38 +28,47 @@ void skills_auton()
     // go to other side of field
     chassis.turnTo(-22, -58, 500, true, baseSpeed);
     chassis.moveToPoint(-22, -55, 300, true, baseSpeed);
-    chassis.turnTo(38, -55, 300, true, baseSpeed);
-    chassis.moveToPoint(38, -55, 10000, true, baseSpeed);
+    chassis.turnTo(40, -55, 300, true, baseSpeed);
+    chassis.moveToPoint(40, -55, 10000, true, baseSpeed);
 
-    // start right push
-    chassis.turnTo(58, -36, 500, true, baseSpeed);
-    chassis.moveToPoint(58, -36, 1000, true, baseSpeed);
-    // chassis.moveToPoint(10, -43, 1000, false, baseSpeed);
+    // align right push
+    chassis.turnTo(65, -36, 500, true, baseSpeed);
+    chassis.moveToPoint(65, -36, 1000, true, baseSpeed);
 
-    // // start mid right
-    // motors::system::move_bumpers(true);
-    // chassis.turnTo(44, -15, 500, true, baseSpeed);
-    // chassis.moveToPoint(44, -15, 1000, true, baseSpeed);
-    // chassis.moveToPoint(34, -15, 1000, false, baseSpeed);
-    // chassis.moveToPoint(44, -15, 1000, true, baseSpeed);
-    // motors::system::move_bumpers(false);
-    // chassis.moveToPoint(13, -15, 500, false, baseSpeed);
+    // commence right push
+    // chassis.turnTo(58, -17, 500, true, baseSpeed);
+    // chassis.moveToPoint(58, -17, 500, true, baseSpeed);
 
-    // // mid 
-    // chassis.turnTo(40, 0, 500, true, baseSpeed);
-    // motors::system::move_bumpers(true);
-    // chassis.moveToPoint(40, 0, 500, true, baseSpeed);
-    // chassis.moveToPoint(30, 0, 500, false, baseSpeed);
-    // chassis.moveToPoint(40, 0, 1000, true, baseSpeed);
-    // motors::system::move_bumpers(true);
-    // chassis.moveToPoint(30, 0, 500, false, baseSpeed);
+    // back up
+    chassis.turnTo(61, -45, 500, false, baseSpeed);
+    chassis.moveToPoint(61, -45, 500, false, baseSpeed);
 
-    // // mid left 
-    // motors::system::move_bumpers(true);
-    // chassis.turnTo(45, 10, 500, true, baseSpeed);
-    // chassis.moveToPoint(45, 10, 1000, true, baseSpeed);
-    // chassis.moveToPoint(35, 10, 1000, false, baseSpeed);
-    // motors::system::move_bumpers(true);
-    // chassis.moveToPoint(45, 10, 500, true, baseSpeed);
+    // begin align front push
+    chassis.turnTo(9, -33, 1000, false, baseSpeed);
+    chassis.moveToPoint(9, -33, 1000, false, baseSpeed);
+    chassis.waitUntilDone();
+
+    motors::system::move_bumpers(true);
+    chassis.turnTo(49, 0, 1000, true, baseSpeed);
+    chassis.moveToPoint(49, 0, 1000, true, baseSpeed);
+
+    // go back, push again
+    chassis.waitUntilDone();
+    motors::system::move_bumpers(false);
+
+    chassis.turnTo(7, 12, 1000, false, baseSpeed);
+    chassis.moveToPoint(7, 12, 1000, false, baseSpeed);
+
+    chassis.waitUntilDone();
+    motors::system::move_bumpers(true);
+    chassis.moveToPoint(55, 8, 1000, true, baseSpeed);
+
+    chassis.waitUntilDone();
+    motors::system::move_bumpers(false);
+    chassis.turnTo(8, -39, 1000, false, baseSpeed);
+    chassis.moveToPoint(8, -39, 1000, false, baseSpeed);
+
+    chassis.turnTo(47, 47, 10000, false, baseSpeed);
+    chassis.moveToPoint(47, 47, 3000, false, baseSpeed);
 
 }
