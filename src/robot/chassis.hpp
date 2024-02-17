@@ -6,14 +6,14 @@
 lemlib::Drivetrain drivetrain{
     &left_side_motors,  // left drivetrain motors
     &right_side_motors, // right drivetrain motors
-    11.5,               // track width
+    10.1,               // track width
     lemlib::Omniwheel::NEW_325,               // wheel diameter
     450,                // wheel rpm
     2               // chase power
 };
 
-lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, 2.0, 2.5);
-lemlib::TrackingWheel vertical_tracking_wheel(&vertical_tracking, 2.0, 2.5);
+lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_tracking, 2, 6);
+lemlib::TrackingWheel vertical_tracking_wheel(&vertical_tracking, 2, 0);
 
 // odometry struct
 lemlib::OdomSensors sensors{
